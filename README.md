@@ -1,27 +1,24 @@
 # XYZ
 
 <p align="center">
-  <img src="assets/banner.png" alt="XYZ">
-</p>
 
-<h3 align="center">Open-source AI models built for local use</h3>
+**Open-source AI models for local use**
 
-<p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/Models-XYZ-blue.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/Local-AI-orange.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/Open--Source-Yes-purple.svg"></a>
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Open Source](https://img.shields.io/badge/Open--Source-Yes-blue.svg)]()
+[![Local AI](https://img.shields.io/badge/Local-AI-orange.svg)]()
+
 </p>
 
 ---
 
-## About XYZ
+## About
 
-**XYZ** is an open-source family of AI models designed for **local inference, programming, and general text tasks**.
+**XYZ** is an open-source family of AI models focused on **local inference, programming and general text tasks**.
 
-The main goal of the project is to create powerful models that can run locally on consumer hardware, including systems with limited VRAM.
+The main goal of the project is to create useful AI models that can run locally on consumer hardware without requiring cloud APIs.
 
-The project is being developed from scratch with a focus on:
+The project focuses on:
 
 - local AI
 - code generation
@@ -34,47 +31,112 @@ The project is being developed from scratch with a focus on:
 
 # Model Family
 
-XYZ is designed as a family of models with different sizes and hardware targets.
+XYZ currently focuses on three models:
 
 | Model | Parameters | Target Hardware | Main Focus | Status |
 |---|---:|---|---|---|
 | **XYZ-Coder Mini** | 7B | 4–6 GB VRAM | Lightweight coding | Planned |
-| **XYZ-Coder-1** | 118M | 4–8 GB VRAM | Experimental / compact | In development |
+| **XYZ-Coder-1** | 118M | 4–8 GB VRAM | Compact coding | In development |
 | **XYZ-Coder-2** | ~1B | 6–8 GB VRAM | Local coding | Planned |
-| **XYZ-Coder-3** | ~3B | 8–12 GB VRAM | Coding | Planned |
-| **XYZ-Coder-4** | ~7B | 8–16 GB VRAM | Advanced coding | Planned |
-| **XYZ-Coder-5** | ~16B | 12–16 GB VRAM | High-performance local coding | Planned |
-| **XYZ-Coder-6** | ~32B | 16 GB+ / aggressive quantization | Maximum local performance | Planned |
 
-> Model sizes and hardware requirements may change as the architecture and quantization methods evolve.
+> Model sizes and hardware requirements may change during development.
 
 ---
 
-# Why XYZ?
+# Models
 
-Most large AI models require expensive hardware or cloud services.
+## XYZ-Coder Mini
 
-XYZ focuses on a different goal:
+A lightweight version designed for older GPUs and laptops with limited VRAM.
 
-> **Bring powerful AI closer to the user's own computer.**
+The main goal is to provide a useful coding assistant on hardware with around **4–6 GB of VRAM**.
 
-The project aims to make different model sizes available for different hardware configurations.
+### Focus
 
-### Example
+- Code generation
+- Code completion
+- Basic programming questions
+- Local inference
+- Low memory usage
+
+---
+
+## XYZ-Coder-1
+
+The first experimental XYZ-Coder model.
+
+### Specifications
+
+| Parameter | Value |
+|---|---:|
+| Parameters | **118,056,960 (~118M)** |
+| Architecture | Decoder-only Transformer |
+| Layers | **14** |
+| Attention heads | **12** |
+| Embedding size | **768** |
+| Context length | **512 tokens** |
+| Vocabulary | **24,000 BPE** |
+| Dropout | **0.1** |
+
+### Training Data
+
+Current training direction:
+
+| Category | Target |
+|---|---:|
+| 🔥 Code | **65%** |
+| 🧠 Dialogue | **20%** |
+| 📚 Knowledge | **15%** |
+
+The current training dataset contains approximately **653M+ tokens**.
+
+The current model is trained from scratch using a custom PyTorch training pipeline.
+
+---
+
+## XYZ-Coder-2
+
+The next generation of XYZ-Coder.
+
+Target size:
+
+**~1 billion parameters**
+
+The goal of XYZ-Coder-2 is to provide significantly better:
+
+- code generation
+- instruction following
+- context understanding
+- programming explanations
+- local coding performance
+
+Development details will be published as the model progresses.
+
+---
+
+# Training
+
+XYZ models are built around Transformer architectures and trained using PyTorch.
+
+Current training pipeline includes:
+
+- AdamW
+- BF16 mixed precision
+- scaled dot-product attention
+- cosine learning rate
+- learning-rate warmup
+- gradient clipping
+- automatic batch-size selection
+- checkpointing
+- custom BPE tokenizer
+
+---
+
+# Current Training Hardware
+
+XYZ-Coder-1 is currently being developed on consumer hardware.
 
 ```text
-4 GB VRAM
-    ↓
-XYZ Mini
-
-8 GB VRAM
-    ↓
-XYZ 1B / 3B
-
-12 GB VRAM
-    ↓
-XYZ 7B / 16B quantized
-
-16 GB VRAM
-    ↓
-XYZ 16B / 32B heavily quantized
+GPU: NVIDIA RTX 4060 Ti 16GB
+CPU: Intel Core i5-12400
+RAM: 32GB
