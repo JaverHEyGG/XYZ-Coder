@@ -88,7 +88,7 @@ Current training direction:
 | 🧠 Dialogue | **20%** |
 | 📚 Knowledge | **15%** |
 
-The current training dataset contains approximately **653M+ tokens**.
+The current training dataset contains approximately **923M+ tokens**.
 
 The current model is trained from scratch using a custom PyTorch training pipeline.
 
